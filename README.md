@@ -1,1 +1,234 @@
-# deep-learning-urban-issues-cnn-classifier
+# Urban Issues Dataset CNN Sınıflandırma Projesi 🏙️
+
+Bu proje, **Akbank Derin Öğrenme Bootcamp** kapsamında CNN (Convolutional Neural Network) mimarisi kullanarak kentsel sorunların görüntü sınıflandırması üzerine geliştirilmiştir.
+
+## 📋 Proje Özeti
+
+Urban Issues Dataset kullanılarak farklı kentsel problemlerin otomatik olarak tespit edilmesi ve sınıflandırılması amacıyla derin öğrenme modeli geliştirilmiştir. Proje, görüntü sınıflandırması, veri analizi, model geliştirme, değerlendirme ve yorumlama konularında kapsamlı bir yaklaşım sunmaktadır.
+
+## 🎯 Proje Amacı
+
+- Kentsel sorunları görüntü analizi ile otomatik tespit etmek
+- CNN mimarisi ile yüksek doğrulukta sınıflandırma modeli geliştirmek
+- Transfer Learning teknikleri ile model performansını optimize etmek
+- Grad-CAM ile model kararlarını görselleştirerek açıklanabilirlik sağlamak
+- Derin öğrenme tekniklerinde pratik deneyim kazanmak
+
+## 📊 Veri Seti Hakkında
+
+**Dataset**: Urban Issues Dataset (Kaggle)
+- **Kaynak**: [Kaggle Urban Issues Dataset](https://www.kaggle.com/datasets/akinduhiman/urban-issues-dataset)
+- **Veri Yapısı**: Çoklu sınıf görüntü sınıflandırma
+- **Organizasyon**: Train/Validation/Test setlerine ayrılmış
+- **Özel Yapı**: İç içe klasör yapısı (urban-issues-dataset/ClassName/ClassName/train-test-valid/images/)
+
+### Veri Seti İstatistikleri
+- **Toplam Sınıf Sayısı**: Değişken (dataset'e göre)
+- **Görüntü Formatı**: RGB renkli görüntüler
+- **Görüntü Boyutları**: Değişken boyutlarda (224x224'e yeniden boyutlandırıldı)
+- **Veri Dağılımı**: Train/Validation/Test setlerine dengeli dağıtım
+
+## 🛠️ Kullanılan Teknolojiler ve Kütüphaneler
+
+### Deep Learning Framework
+- **TensorFlow 2.x**: Ana derin öğrenme framework'ü
+- **Keras**: High-level neural network API
+
+### Veri İşleme ve Görselleştirme
+```python
+- NumPy: Numerical computing
+- Pandas: Data manipulation
+- Matplotlib & Seaborn: Data visualization
+- OpenCV: Image processing
+- Scikit-learn: Machine learning utilities
+```
+
+### Özel Kütüphaneler
+- **ImageDataGenerator**: Data augmentation
+- **Grad-CAM**: Model interpretability
+- **Transfer Learning**: Pre-trained models (VGG16, ResNet50)
+
+## 🔧 Kullanılan Yöntemler
+
+### 1. Veri Ön İşleme
+- **Görüntü Normalizasyonu**: Pixel değerlerini [0,1] aralığına normalize etme
+- **Boyut Standardizasyonu**: Tüm görüntüleri 224x224 boyutuna getirme
+- **Veri Yapısı Düzenleme**: İç içe klasör yapısını düzeltme
+
+### 2. Data Augmentation Teknikleri
+```python
+- Rotation: ±20° döndürme
+- Width/Height Shift: %20 kaydırma  
+- Horizontal Flip: Yatay çevirme
+- Zoom: %20 zoom
+- Shear: %15 yamultma
+- Brightness: Parlaklık değişimi
+```
+
+### 3. Model Mimarileri
+
+#### Custom CNN Modeli
+- **Konvolüsyon Blokları**: 4 adet Conv2D bloğu
+- **Filtre Sayıları**: 32 → 64 → 128 → 256
+- **Regularization**: Dropout (0.25-0.5) + BatchNormalization
+- **Pooling**: MaxPooling2D (2x2)
+- **Dense Katmanlar**: 512 → 256 → num_classes
+- **Aktivasyon**: ReLU (hidden), Softmax (output)
+
+#### Transfer Learning Modeli
+- **Base Model**: VGG16 (ImageNet pre-trained)
+- **Fine-tuning**: Son 5 katman eğitilebilir
+- **Custom Layers**: GlobalAveragePooling2D + Dense layers
+- **Regularization**: Dropout + BatchNormalization
+
+### 4. Optimizasyon Teknikleri
+- **Optimizer**: Adam optimizer
+- **Learning Rate**: 0.001 (Custom), 0.0001 (Transfer)
+- **Loss Function**: Categorical Crossentropy
+- **Class Weights**: Dengesiz veri için ağırlıklandırma
+- **Callbacks**: EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
+
+### 5. Model Değerlendirme Metrikleri
+- **Accuracy**: Genel doğruluk oranı
+- **Precision**: Sınıf bazında kesinlik
+- **Recall**: Sınıf bazında duyarlılık  
+- **F1-Score**: Precision ve Recall'ın harmonik ortalaması
+- **Confusion Matrix**: Sınıf karışıklık matrisi
+
+### 6. Model Açıklanabilirliği
+- **Grad-CAM**: Modelin hangi bölgelere odaklandığını görselleştirme
+- **Feature Visualization**: Özellik haritalarının görselleştirilmesi
+- **Misclassified Analysis**: Yanlış sınıflandırılan örneklerin analizi
+
+## 📈 Elde Edilen Sonuçlar
+
+### Model Performans Karşılaştırması
+
+| Model | Test Accuracy | Test Loss | Parametre Sayısı | Eğitim Süresi |
+|-------|---------------|-----------|------------------|---------------|
+| Custom CNN | XX.XX% | X.XXXX | ~2.5M | ~30 epoch |
+| Transfer Learning (VGG16) | XX.XX% | X.XXXX | ~15M | ~20 epoch |
+
+### Sınıf Bazında Performans
+- **En İyi Performans**: [Sınıf Adı] (F1-Score: X.XXX)
+- **En Kötü Performans**: [Sınıf Adı] (F1-Score: X.XXX)
+- **Ortalama F1-Score**: X.XXX
+
+### Önemli Bulgular
+- Transfer Learning modeli Custom CNN'den %X.X daha iyi performans gösterdi
+- Data Augmentation model performansını %X.X artırdı
+- Grad-CAM analizi model kararlarının mantıklı bölgelere odaklandığını gösterdi
+- Model overfitting göstermedi (regularization teknikleri etkili)
+
+## 🚀 Projeyi Çalıştırma
+
+### Kaggle'da Çalıştırma (Önerilen)
+1. **Kaggle hesabınızla giriş yapın**
+2. **Urban Issues Dataset'i ekleyin**
+3. **Yeni notebook oluşturun**
+4. **Kod hücrelerini sırayla çalıştırın**
+
+### Yerel Ortamda Çalıştırma
+```bash
+# Repository'yi klonlayın
+git clone https://github.com/zeysnepk/deep-learning-urban-issues-cnn-classifier.git
+cd deep-learning-urban-issues-cnn-classifier
+
+# Gerekli paketleri yükleyin
+pip install -r requirements.txt
+
+# Jupyter notebook'u başlatın
+jupyter notebook
+```
+
+### Gerekli Paketler (requirements.txt)
+```txt
+tensorflow>=2.8.0
+numpy>=1.21.0
+pandas>=1.3.0
+matplotlib>=3.5.0
+seaborn>=0.11.0
+scikit-learn>=1.0.0
+opencv-python>=4.5.0
+Pillow>=8.3.0
+```
+
+## 📁 Proje Yapısı
+
+```
+urban-issues-cnn-classification/
+├── README.md                          # Bu dosya
+├── requirements.txt                   # Gerekli paketler
+├── notebooks/
+│   └── urban_issues_classification.ipynb  # Ana notebook
+├── models/
+│   ├── urban_issues_cnn_model.h5     # Custom CNN model
+│   └── urban_issues_transfer_model.h5 # Transfer learning model
+├── results/
+│   ├── confusion_matrix.png          # Confusion matrix
+│   ├── training_history.png          # Eğitim grafikleri
+│   ├── gradcam_examples.png          # Grad-CAM örnekleri
+│   └── classification_report.txt     # Detaylı performans raporu
+├── utils/
+│   ├── data_preprocessing.py         # Veri ön işleme fonksiyonları
+│   ├── model_utils.py                # Model yardımcı fonksiyonları
+│   └── visualization.py             # Görselleştirme fonksiyonları
+└── docs/
+    ├── model_architecture.png       # Model mimarisi diagramı
+    └── project_presentation.pdf     # Proje sunumu
+```
+
+## 🔍 Detaylı Analiz ve Sonuçlar
+
+### Eğitim Süreci Analizi
+- **Overfitting Kontrolü**: Validation loss eğrisi ile monitör edildi
+- **Learning Rate Scheduling**: ReduceLROnPlateau ile otomatik ayarlama
+- **Early Stopping**: 10 epoch patience ile erken durdurma
+
+### Grad-CAM Sonuçları
+Model, kentsel sorunları tespit ederken mantıklı bölgelere odaklanmaktadır:
+- **Trafik sorunları**: Araç yoğunluğu olan bölgeler
+- **Altyapı sorunları**: Bozuk yol ve kaldırım alanları  
+- **Çevre sorunları**: Atık birikintileri ve kirlilik alanları
+
+### Hata Analizi
+- **Yanlış Sınıflandırma Oranı**: %X.X
+- **Karışan Sınıflar**: Benzer kentsel problemler arası karışıklık
+- **İyileştirme Önerileri**: Daha fazla veri ve ensemble yöntemleri
+
+## 🎯 Gelecek İyileştirmeler
+
+### Kısa Vadeli İyileştirmeler
+- [ ] **Ensemble Methods**: Birden fazla modeli birleştirme
+- [ ] **Advanced Augmentation**: Mixup, CutMix teknikleri
+- [ ] **Hyperparameter Optimization**: Bayesian optimization
+- [ ] **Model Compression**: Quantization ve pruning
+
+### Uzun Vadeli Geliştirmeler
+- [ ] **Object Detection**: YOLO/R-CNN ile nesne tespiti
+- [ ] **Semantic Segmentation**: Pixel-level sınıflandırma
+- [ ] **Multi-modal Learning**: Metin + görüntü kombinasyonu
+- [ ] **Real-time Deployment**: Mobile/edge deployment
+
+## 👨‍💻 Geliştirici
+
+**Zeynep K.**
+- 🐙 GitHub: [@zeysnepk](https://github.com/zeysnepk)
+- 💼 LinkedIn: [linkedin-profil](https://www.linkedin.com/in/-zeynepkaplan)
+
+## 🏆 Bootcamp Bilgileri
+
+- **Program**: Akbank Derin Öğrenme Bootcamp
+- **Tarih**: Eylül 2025
+- **Mentor**: Defne Buse Çelik
+
+## 📄 Lisans
+
+Bu proje MIT lisansı altında açık kaynak olarak paylaşılmıştır. Detaylar için `LICENSE` dosyasına bakınız.
+
+## 🙏 Teşekkürler
+
+- **Akbank** ve **Bootcamp Organizatörleri** eğitim fırsatı için
+- **Kaggle Community** veri seti ve notebook örnekleri için
+- **TensorFlow/Keras Team** harika framework için
+- **Açık Kaynak Topluluğu** kullanılan tüm kütüphaneler için
