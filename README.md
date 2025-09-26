@@ -11,7 +11,6 @@ Urban Issues Dataset kullanılarak farklı kentsel problemlerin otomatik olarak 
 - Kentsel sorunları görüntü analizi ile otomatik tespit etmek
 - CNN mimarisi ile yüksek doğrulukta sınıflandırma modeli geliştirmek
 - Transfer Learning teknikleri ile model performansını optimize etmek
-- Grad-CAM ile model kararlarını görselleştirerek açıklanabilirlik sağlamak
 - Derin öğrenme tekniklerinde pratik deneyim kazanmak
 
 ## 📊 Veri Seti Hakkında
@@ -45,7 +44,6 @@ Urban Issues Dataset kullanılarak farklı kentsel problemlerin otomatik olarak 
 
 ### Özel Kütüphaneler
 - **ImageDataGenerator**: Data augmentation
-- **Grad-CAM**: Model interpretability
 - **Transfer Learning**: Pre-trained models (VGG16, ResNet50)
 
 ## 🔧 Kullanılan Yöntemler
@@ -96,7 +94,6 @@ Urban Issues Dataset kullanılarak farklı kentsel problemlerin otomatik olarak 
 - **Confusion Matrix**: Sınıf karışıklık matrisi
 
 ### 6. Model Açıklanabilirliği
-- **Grad-CAM**: Modelin hangi bölgelere odaklandığını görselleştirme
 - **Feature Visualization**: Özellik haritalarının görselleştirilmesi
 - **Misclassified Analysis**: Yanlış sınıflandırılan örneklerin analizi
 
@@ -184,12 +181,6 @@ urban-issues-cnn-classification/
 - **Overfitting Kontrolü**: Validation loss eğrisi ile monitör edildi
 - **Learning Rate Scheduling**: ReduceLROnPlateau ile otomatik ayarlama
 - **Early Stopping**: 10 epoch patience ile erken durdurma
-
-### Grad-CAM Sonuçları
-Model, kentsel sorunları tespit ederken mantıklı bölgelere odaklanmaktadır:
-- **Trafik sorunları**: Araç yoğunluğu olan bölgeler
-- **Altyapı sorunları**: Bozuk yol ve kaldırım alanları  
-- **Çevre sorunları**: Atık birikintileri ve kirlilik alanları
 
 ### Hata Analizi
 - **Yanlış Sınıflandırma Oranı**: %X.X
