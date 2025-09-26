@@ -10,7 +10,6 @@ Urban Issues Dataset kullanılarak farklı kentsel problemlerin otomatik olarak 
 
 - Kentsel sorunları görüntü analizi ile otomatik tespit etmek
 - CNN mimarisi ile yüksek doğrulukta sınıflandırma modeli geliştirmek
-- Transfer Learning teknikleri ile model performansını optimize etmek
 - Derin öğrenme tekniklerinde pratik deneyim kazanmak
 
 ## 📊 Veri Seti Hakkında
@@ -44,7 +43,6 @@ Urban Issues Dataset kullanılarak farklı kentsel problemlerin otomatik olarak 
 
 ### Özel Kütüphaneler
 - **ImageDataGenerator**: Data augmentation
-- **Transfer Learning**: Pre-trained models (VGG16, ResNet50)
 
 ## 🔧 Kullanılan Yöntemler
 
@@ -99,22 +97,11 @@ Urban Issues Dataset kullanılarak farklı kentsel problemlerin otomatik olarak 
 
 ## 📈 Elde Edilen Sonuçlar
 
-### Model Performans Karşılaştırması
-
-| Model | Test Accuracy | Test Loss | Parametre Sayısı | Eğitim Süresi |
-|-------|---------------|-----------|------------------|---------------|
-| Custom CNN | XX.XX% | X.XXXX | ~2.5M | ~30 epoch |
-| Transfer Learning (VGG16) | XX.XX% | X.XXXX | ~15M | ~20 epoch |
-
 ### Sınıf Bazında Performans
-- **En İyi Performans**: [Sınıf Adı] (F1-Score: X.XXX)
-- **En Kötü Performans**: [Sınıf Adı] (F1-Score: X.XXX)
-- **Ortalama F1-Score**: X.XXX
+- **En İyi Performans**: Damaged concrete structures (F1: 0.9698)
+- **En Kötü Performans**: IllegalParking (F1: 0.1695)
 
 ### Önemli Bulgular
-- Transfer Learning modeli Custom CNN'den %X.X daha iyi performans gösterdi
-- Data Augmentation model performansını %X.X artırdı
-- Grad-CAM analizi model kararlarının mantıklı bölgelere odaklandığını gösterdi
 - Model overfitting göstermedi (regularization teknikleri etkili)
 
 ## 🚀 Projeyi Çalıştırma
@@ -150,31 +137,6 @@ opencv-python>=4.5.0
 Pillow>=8.3.0
 ```
 
-## 📁 Proje Yapısı
-
-```
-urban-issues-cnn-classification/
-├── README.md                          # Bu dosya
-├── requirements.txt                   # Gerekli paketler
-├── notebooks/
-│   └── urban_issues_classification.ipynb  # Ana notebook
-├── models/
-│   ├── urban_issues_cnn_model.h5     # Custom CNN model
-│   └── urban_issues_transfer_model.h5 # Transfer learning model
-├── results/
-│   ├── confusion_matrix.png          # Confusion matrix
-│   ├── training_history.png          # Eğitim grafikleri
-│   ├── gradcam_examples.png          # Grad-CAM örnekleri
-│   └── classification_report.txt     # Detaylı performans raporu
-├── utils/
-│   ├── data_preprocessing.py         # Veri ön işleme fonksiyonları
-│   ├── model_utils.py                # Model yardımcı fonksiyonları
-│   └── visualization.py             # Görselleştirme fonksiyonları
-└── docs/
-    ├── model_architecture.png       # Model mimarisi diagramı
-    └── project_presentation.pdf     # Proje sunumu
-```
-
 ## 🔍 Detaylı Analiz ve Sonuçlar
 
 ### Eğitim Süreci Analizi
@@ -183,7 +145,7 @@ urban-issues-cnn-classification/
 - **Early Stopping**: 10 epoch patience ile erken durdurma
 
 ### Hata Analizi
-- **Yanlış Sınıflandırma Oranı**: %X.X
+- **Yanlış Sınıflandırma Oranı**: %16.68
 - **Karışan Sınıflar**: Benzer kentsel problemler arası karışıklık
 - **İyileştirme Önerileri**: Daha fazla veri ve ensemble yöntemleri
 
