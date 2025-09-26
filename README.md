@@ -167,13 +167,16 @@ Pillow>=8.3.0
 
 **Zeynep K.**
 - 🐙 GitHub: [@zeysnepk](https://github.com/zeysnepk)
-- 💼 LinkedIn: [linkedin-profil](https://www.linkedin.com/in/-zeynepkaplan)
+- 💼 LinkedIn: [Zeynep Kaplan](https://www.linkedin.com/in/-zeynepkaplan)
 
 ## 🏆 Bootcamp Bilgileri
 
 - **Program**: Akbank Derin Öğrenme Bootcamp
 - **Tarih**: Eylül 2025
 - **Mentor**: Defne Buse Çelik
+
+## 🔗 Kaggle Linki
+https://www.kaggle.com/code/zeysnepk/deep-learning-urban-issues-cnn-classifier
 
 ## 📄 Lisans
 
