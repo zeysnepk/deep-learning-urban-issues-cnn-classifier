@@ -1,4 +1,4 @@
-# Urban Issues Dataset CNN Sınıflandırma Projesi 🏙️
+# Urban Issues Dataset CNN Sınıflandırma Projesi
 
 Bu proje, **Akbank Derin Öğrenme Bootcamp** kapsamında CNN (Convolutional Neural Network) mimarisi kullanarak kentsel sorunların görüntü sınıflandırması üzerine geliştirilmiştir.
 
