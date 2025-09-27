@@ -79,7 +79,7 @@ Urban Issues Dataset kullanılarak farklı kentsel problemlerin otomatik olarak 
 
 ### 4. Optimizasyon Teknikleri
 - **Optimizer**: Adam optimizer
-- **Learning Rate**: 0.001 (Custom), 0.0001 (Transfer)
+- **Learning Rate**: 0.001
 - **Loss Function**: Categorical Crossentropy
 - **Class Weights**: Dengesiz veri için ağırlıklandırma
 - **Callbacks**: EarlyStopping, ReduceLROnPlateau, ModelCheckpoint
@@ -98,8 +98,8 @@ Urban Issues Dataset kullanılarak farklı kentsel problemlerin otomatik olarak 
 ## 📈 Elde Edilen Sonuçlar
 
 ### Sınıf Bazında Performans
-- **En İyi Performans**: Damaged concrete structures (F1: 0.9698)
-- **En Kötü Performans**: IllegalParking (F1: 0.1695)
+- **En İyi Performans**: Damaged concrete structures (F1: 0.9713)
+- **En Kötü Performans**: IllegalParking (F1: 0.2381)
 
 ### Önemli Bulgular
 - Model overfitting göstermedi (regularization teknikleri etkili)
@@ -145,7 +145,7 @@ Pillow>=8.3.0
 - **Early Stopping**: 10 epoch patience ile erken durdurma
 
 ### Hata Analizi
-- **Yanlış Sınıflandırma Oranı**: %16.68
+- **Yanlış Sınıflandırma Oranı**: %15.05
 - **Karışan Sınıflar**: Benzer kentsel problemler arası karışıklık
 - **İyileştirme Önerileri**: Daha fazla veri ve ensemble yöntemleri
 
